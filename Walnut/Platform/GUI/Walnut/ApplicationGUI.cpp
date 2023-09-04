@@ -692,6 +692,7 @@ namespace Walnut {
 		// fgDrawList->AddRect(titlebarMin, titlebarMax, UI::Colors::Theme::invalidPrefab);
 
 		// Logo
+		if (m_Specification.DrawIconInCustomTitlebar)
 		{
 			const int logoWidth = 48;// m_LogoTex->GetWidth();
 			const int logoHeight = 48;// m_LogoTex->GetHeight();
@@ -730,8 +731,15 @@ namespace Walnut {
 			ImGui::SuspendLayout();
 			{
 				ImGui::SetItemAllowOverlap();
-				const float logoHorizontalOffset = 16.0f * 2.0f + 48.0f + windowPadding.x;
-				ImGui::SetCursorPos(ImVec2(logoHorizontalOffset, 6.0f + titlebarVerticalOffset));
+				if (m_Specification.DrawIconInCustomTitlebar)
+				{
+					const float logoHorizontalOffset = 16.0f * 2.0f + 48.0f + windowPadding.x;
+					ImGui::SetCursorPos(ImVec2(logoHorizontalOffset, 6.0f + titlebarVerticalOffset));
+				}
+				else
+				{
+					ImGui::SetCursorPos(ImVec2(16.0f + windowPadding.x, 6.0f + titlebarVerticalOffset));
+				}
 				UI_DrawMenubar();
 
 				if (ImGui::IsItemHovered())

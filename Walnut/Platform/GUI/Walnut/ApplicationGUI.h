@@ -34,6 +34,8 @@ namespace Walnut {
 		// of Windows default
 		bool CustomTitlebar = false;
 
+		bool DrawIconInCustomTitlebar = true;
+
 		// Window will be created in the center
 		// of primary monitor
 		bool CenterWindow = false;
