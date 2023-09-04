@@ -1002,6 +1002,13 @@ namespace Walnut {
 	void Application::Close()
 	{
 		m_Running = false;
+		m_IsClosing = true;
+	}
+
+	void Application::CancelClose()
+	{
+		m_Running = true;
+		m_IsClosing = false;
 	}
 
 	bool Application::IsMaximized() const
