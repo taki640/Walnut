@@ -1007,6 +1007,11 @@ namespace Walnut {
 
 	}
 
+	void Application::SetWindowName(const std::string& name)
+	{
+		m_Specification.Name = name;
+	}
+
 	void Application::Close()
 	{
 		m_Running = false;
