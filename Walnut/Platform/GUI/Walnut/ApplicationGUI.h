@@ -20,6 +20,17 @@ struct GLFWwindow;
 
 namespace Walnut {
 
+	struct Font
+	{
+		const char* Name;
+		void* Data;
+		int Size;
+		float PixelSize;
+
+		Font(const char* name, void* data, int size, float pixelSize) 
+			: Name(name), Data(data), Size(size), PixelSize(pixelSize) { }
+	};
+
 	struct ApplicationSpecification
 	{
 		std::string Name = "Walnut App";
@@ -33,12 +44,13 @@ namespace Walnut {
 		// Uses custom Walnut titlebar instead
 		// of Windows default
 		bool CustomTitlebar = false;
-
 		bool DrawIconInCustomTitlebar = true;
 
 		// Window will be created in the center
 		// of primary monitor
 		bool CenterWindow = false;
+		float DefaultFontSize = 20.0f;
+		std::vector<Font> CustomFonts;
 	};
 
 	class Application
